@@ -71,6 +71,6 @@
 {
     // Prevent any interaction when the empty view is shown
     const bool emptyViewShown = (_emptyView.superview != nil);
-    return emptyViewShown ? nil : [super hitTest:point withEvent:event];
+    return (emptyViewShown && !_passTouches) ? nil : [super hitTest:point withEvent:event];
 }
 @end
